@@ -1,61 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta charset="UTF-8">
+    <!--Passt den Content an die Displaygröße and und setzt Zoom auf 100%-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
+
+    <!--<header>
+        
         <nav>
             <ul>
-                <li><a href="#main">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">Über Mich</a></li>
-                <li><a href="#contact">Kotakt</a></li>
+                <li><a href="#main">Home</a> </li>
+                <li><a href="#projects">Projects</a> </li>
+                <li><a href="#about">About Me</a> </li>
+                <li><a href="#contact">Kontakt</a> </li>
             </ul>
         </nav>
-    </header>
 
+    </header> 
+    -->
+    <!--Bootstrap Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link fg-light navLink" href="#main">Home</a></li>
+
+                    <li class="nav-item"><a class="nav-link fg-light navLink" href="#projects">Projects</a></li>
+
+                    <li class="nav-item"><a class="nav-link fg-light navLink" href="#about">About Me</a></li>
+
+                    <li class="nav-item"><a class="nav-link fg-light navLink" href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+    <!--ID's ("idname")sind einzigartig, dürfen nicht wiederholt werden-->
     <section id="main">
+
         <h1>Willkommen zu meinem Portfolio</h1>
+
     </section>
 
     <section id="projects">
-        <h2>Meiner Projekte</h2>
-        <iframe src="projects.html" width="100%" height="600px" style="border:none;">
-        </iframe>
+
+        <h2>Meine Projekte</h2>
+        <iframe src="project.html" width="100%" height="600px" style="border: none;"></iframe>
+
     </section>
 
     <section id="about">
-        <h2>Über Mich</h2>
-        <p>Hier ist etwas über mich...</p>
+
+        <h2>About Me</h2>
+
+        <p>Placeholder</p>
+
     </section>
 
     <section id="contact">
-        <h2>Kontaktieren Sie mich</h2>
+
+        <h2>Contact Me</h2>
 
         <form id="contact-form">
-            <input type="text" placeholder="Name" required />
-            <input type="email" placeholder="Email" required />
-            <textarea placeholder="Ihre Nachricht"></textarea>
+            <input type="text" placeholder="Name" required></input>
+            <input type="email" placeholder="email" required></input>
+            <textarea placeholder="Ihre Nachricht:"></textarea>
             <button type="submit">Senden</button>
         </form>
-
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2023 Mein Portfolio. Alle Rechte vorbehalten</p>
-            <p>Spezielle Zeichen: &amp; (&), &lt; (<), &gt; (>)</p>
-            <p>Klickzähler: <span id="click-count">0</span></p>
+            <p>&copy; 2023 My Portfolio. All Rights reserved</p>
+            <p>Special Characters: &amp; &lt; &gt</p>
+            <p>Klickzähler: <span id="click-count"> 0 </span></p>
         </div>
     </footer>
 
     <script src="../backend/backend.js"></script>
+
+
+
 </body>
 
 </html>

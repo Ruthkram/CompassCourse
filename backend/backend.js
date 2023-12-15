@@ -1,17 +1,20 @@
 let clickCount = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-    displayTodos(); //Loading the parsed cookies in the view
+    displayTodos();
 
     document.body.addEventListener('click', () => {
         clickCount += 1;
+
         const clickCountEl = document.getElementById('click-count');
+
         if (clickCountEl) {
             clickCountEl.textContent = clickCount;
         }
     });
 
     const addButton = document.getElementById('add-todo');
+
     if (addButton) {
         addButton.addEventListener('click', () => {
             const input = document.getElementById('todo-input');
@@ -22,16 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const list = document.getElementById('todo-items');
                 const li = document.createElement('li');
-
-                //Konkatenieren von Code:
                 li.classList.add('list-group-item')
-
                 li.textContent = newValue;
                 list.appendChild(li);
 
                 input.value = "";
 
-                //Trigger Canvas Confetti
+                // Trigger Canvas Confetti
                 if (typeof confetti === 'function') {
                     confetti({
                         particleCount: 100,
@@ -44,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// write function to store todos as internet browser cookies and to read them as well
-
 function saveTodoInCookie(todo) {
     let todoCookie = getTodosFromCookie();
     todoCookie.push(todo);
@@ -54,12 +52,13 @@ function saveTodoInCookie(todo) {
 
 function getTodosFromCookie() {
     const cookieString = document.cookie.split('; ').find(row => row.startsWith('todos='));
-
     if (cookieString) {
         const cookieValue = cookieString.split('=')[1];
         try {
             return JSON.parse(decodeURIComponent(cookieValue));
-        } catch (e) {
+        }
+
+        catch (e) {
             return [];
         }
     }
@@ -68,45 +67,40 @@ function getTodosFromCookie() {
 
 function displayTodos() {
     const todos = getTodosFromCookie();
-
     const list = document.getElementById('todo-items');
 
     list.innerHTML = '';
 
     todos.forEach(todoInCookie => {
-        const li = document.createElement('li');
+        const li = document.createElement('li')
         li.classList.add('list-group-item');
         li.textContent = todoInCookie;
         list.appendChild(li);
     })
+
 }
-// API Fetching Code
+//API Function Code
 document.getElementById('fetch-pokemon').addEventListener('click', () => {
     const pokemonName = document.getElementById('pokemon-input').value.trim().toLowerCase();
 
     if (pokemonName) {
-        // String Interpolation
-        fetch('https://pokeapi.co/api/v2/pokemon/${pokemonName}').then(
-            Response => console.log(Response.json())
-        ).then(
-            data => displayPokemonData(data)
-        ).catch(
-            error => console.error('Fehler', error)
-        )
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+            .then(response => response.json())
+            .then(data => displayPokemonData(data))
+            .catch(error => console.error('Error:', error));
     }
 });
 
-function displayPokemonData(futureData) {
+function displayPokemonData(pokemonData) {
     const infoDiv = document.getElementById('pokemon-info');
-    // infoDiv.innerHTML = '<p>Name: ${futureData.name}</p> <p>${futureData.id}</p>';
 
-    if(futureData){
-        `
-        <p> Name: ${futureData.name} </p>
-        <p> ID: ${futureData.id} </p>
-        <img src="${futureData.sprites.front_default} alt="${futureData.name}">
+    if (pokemonData) {
+        infoDiv.innerHTML = `
+            <p>Name: ${pokemonData.name}</p>
+            <p>ID: ${pokemonData.id}</p>
+            <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}">
         `;
     } else {
-        infoDiv.innerHTML = `<p> Pokemon nicht gefunden. </p>`;
+        infoDiv.innerHTML = `<p>Pokemon not found</p>`;
     }
 }

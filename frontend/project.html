@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/projectstyle.css">
+    <title>Meine Projekte</title>
+</head>
+
+<body>
+
+    <!--
+    <section id="main-projects">
+        <div class="project-box">
+            <h3>Projektitel1</h3>
+            <p>Kurze Projektbeschreibung</p>
+        </div>
+        <div class="project-box">
+            <h3>Projektitel2</h3>
+            <p>Kurze Projektbeschreibung</p>
+        </div>
+        <div class="project-box">
+            <h3>ToDo List</h3>
+            <input type="text" id="todo-input" placeholder="Add ToDo">
+            <button id="add-todo">Add</button>
+            <ul id="todo-items"></ul>
+        </div>
+    </section>
+    -->
+    <!--outline transparenter button secondary: -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-4 col-lg-4 col-xl-4">INHALT</div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search for Pokémon" id="pokemon-input">
+                <button class="btn btn-outline-danger" type="button" id="fetch-pokemon">Suchen</button>
+            </div>
+
+            <div id="pokemon-info">
+                <img src="" alt="image not found"></img>
+
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-4 col-lg-4 col-xl-4">INHALT</div>
+
+            <!--This column contains the code for the todo list-->
+            <div class="col-sm-12 col-md-6 col-4 col-lg-4 col-xl-4">INHALT
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Add New ToDo" id="todo-input">
+                    <button class="btn btn-outline-secondary" type="button" id="add-todo">Add</button>
+                </div>
+                <ul class="list-group" id="todo-items"></ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../Backend/backend.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+</body>
+
+</html>

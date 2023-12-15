@@ -3,28 +3,31 @@
     margin: 0;
 }
 
+/*variablen erstellen in CSS*/
 :root {
-    --C1: #A9A9A9;
-    --C2: #FECDA6;
-    --C3: #FF9130;
-    --C4: #FF5B22;
-    --C5: #527853;
-    --C6: #EE7214;
+    --C1: red;
+    --C2: #FFF78A;
+    --C3: #5FBDFF;
+    --C4: purple;
+    --C5: blue;
+    --C6: green;
 }
 
 body,
 html {
     height: 100%;
+
 }
 
 body {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    /* background: linear-gradient(to right, #6dd5ed, #2193b0); */
+    /*background: linear-gradient(to right, rgba(0, 50, 100, 0.5), rgba(100, 100, 105, 0.5));*/
 }
 
+/*# definiert eine ID*/
 #main-projects {
     display: flex;
     justify-content: center;
@@ -33,13 +36,15 @@ body {
 
 .project-box {
     margin: 10px;
-    padding: 20px;
-    border: 1px solid #fff;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
     text-align: center;
 }
 
 .project-box h3 {
     margin-bottom: 10px;
+    /*Abstand nach unten*/
 }
 
 .project-box p {
@@ -50,17 +55,20 @@ body {
     list-style: none;
     height: auto;
     margin: 5px;
-    border-bottom: 1px solid #bcb;
+    border-bottom: 1px solid white;
+
 }
 
-/* special body properties field */
+/*special body properties*/
 body {
-    background: radial-gradient(circle at top, var(--C1), var(--C2), var(--C3)),
+    background:
+        radial-gradient(circle at top, var(--C1), var(--C2), var(--C3)),
         radial-gradient(circle at right, var(--C4), var(--C5), var(--C6), transparent);
 
     background-size: 400% 400%;
 
     -webkit-animation: moveGradient 20s ease-in-out infinite;
+
 }
 
 @-webkit-keyframes moveGradient {
@@ -75,4 +83,5 @@ body {
     100% {
         background-position: 0% 50%;
     }
+
 }
